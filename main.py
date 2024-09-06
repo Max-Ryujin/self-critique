@@ -13,7 +13,7 @@ parser.add_argument('-m', '--model', type=str, default="meta-llama/Meta-Llama-3.
                     help='The model to use for the reasoning task')
 parser.add_argument('-a', '--api', type=str, default="groq", help='The API to use for the reasoning task. select groq or together')
 
-parser.add_argument('-l, --limit', type=int, default=6, help='The maximum number loops for the self critque loop')
+parser.add_argument('-l', '--limit', type=int, default=6, help='The maximum number loops for the self critque loop')
 
 # Parse arguments from the command line
 args = parser.parse_args()
