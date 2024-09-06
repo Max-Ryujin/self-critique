@@ -50,7 +50,7 @@ def query_llm(prompt, max_tokens=8000):
 
     input = f"return the answer to this promt in json format. use the key response and the value as the response. Here is the prompt: {prompt}"
     message = [
-        {"role": "system", "content": "You are part of a self critque loop. To make this work it is important to answer in correctly formatted json. always use the keys \"response\" and the response as value or the key \"perfect_response\" and the value true."},
+        {"role": "system", "content": "You are part of a self critque loop. To make this work it is important to answer in correctly formatted json. Use the keys \"response\" and the response as value or the key \"perfect_response\" and the value true."},
         {"role": "user", "content": input}
     ]
 
@@ -72,8 +72,8 @@ def build_input(prompt, last_response):
         "prompt": prompt,
         "last_response": last_response,
         "task": "Given the prompt and the last response, improve the response. The response should be factually accurate and logically sound."
-        "It should be well written and should fallow the instructions in the prompt perfectly. Do not use \ n as it breakes the json. If the response is already perfect"
-        "write a json response that contains the key perfect_response and the value true. Otherwise, write a json response that contains the key response and the response as value."
+        "It should be well written and should fallow the instructions in the prompt perfectly. Do not use \ n as it breakes the json. If the response is already perfect and you can not improve it, "
+        "write a json that just contains the key perfect_response and the value true. Otherwise, write a json response that contains the key response and the response as value."
     }
     return json_input
 
